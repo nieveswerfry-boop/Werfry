@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#173b32">
+<title>Mi Plan 2031 · Avanzado</title>
+<style>
+:root{--green:#173b32;--green2:#285044;--mint:#c9f4df;--bg:#f4f7f5;--card:#fff;--text:#18231f;--muted:#63716a;--line:#e0e8e3;--accent:#168565;--warn:#fff7df}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--text)}header{background:var(--green);color:white;padding:24px 18px 20px;border-radius:0 0 24px 24px}header small{color:#c8ded4}h1{margin:7px 0;font-size:27px}h2{font-size:19px;margin:4px 0 12px}h3{font-size:16px;margin:8px 0}p{line-height:1.45}.wrap{max-width:850px;margin:auto;padding:14px}.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}.stat{background:var(--green2);padding:14px;border-radius:14px}.stat small{color:#d0e1d9;display:block;margin-bottom:7px}.stat strong{font-size:20px}.tabs{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin:15px 0}.tabs button{padding:11px 3px;border:1px solid var(--line);border-radius:12px;background:white;color:var(--text);font-weight:600;font-size:13px}.tabs button.active{background:var(--green);color:white;border-color:var(--green)}.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;margin:12px 0}.muted{color:var(--muted);font-size:13px}.progress{height:10px;background:#e3eae6;border-radius:99px;overflow:hidden;margin:10px 0}.progress span{height:100%;display:block;background:var(--accent);width:0}.row{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:9px 0;border-bottom:1px solid var(--line)}.row:last-child{border-bottom:0}label{display:block;font-weight:600;font-size:14px;margin:13px 0 6px}input,select,textarea{width:100%;padding:12px;border:1px solid #ccd8d1;border-radius:10px;background:white;color:var(--text);font:inherit}button.action{background:var(--accent);color:white;border:0;border-radius:11px;padding:12px 15px;font-weight:700;width:100%;margin-top:10px}button.secondary{background:white;color:var(--green);border:1px solid var(--line)}button.danger{background:#fff;color:#9b2c2c;border:1px solid #e9caca}.check{display:flex;gap:10px;align-items:flex-start;padding:11px 0;border-bottom:1px solid var(--line);font-weight:400}.check input{width:20px;height:20px;flex-shrink:0;margin:0}.hidden{display:none}.pill{display:inline-block;padding:5px 9px;border-radius:99px;background:#e3f5eb;color:#176647;font-size:12px;font-weight:700}.warning{background:var(--warn);border:1px solid #f0dfa4;border-radius:12px;padding:12px;font-size:13px;line-height:1.45}.notice{background:#eaf4ff;border:1px solid #c9dff7;border-radius:12px;padding:12px;font-size:13px;line-height:1.45}.foot{font-size:12px;color:var(--muted);text-align:center;padding:16px}.two{display:grid;grid-template-columns:1fr;gap:10px}.smallbtn{width:auto!important;margin:4px 6px 4px 0!important;padding:9px 12px!important}.status{font-size:13px;margin-top:8px;line-height:1.4}.kpi{font-size:23px;font-weight:800}.taskcat{font-size:11px;color:var(--muted)}@media(min-width:600px){.wrap{padding:20px}.stats{grid-template-columns:repeat(4,1fr)}.two{grid-template-columns:1fr 1fr}.tabs button{font-size:14px}}
+</style>
+</head>
+<body>
+<header><div class="wrap" style="padding:0"><small>PLAN PERSONAL · 2026–2031</small><h1>Mi Plan 2031</h1><div style="color:#d6e6df">Mis metas. Mis finanzas. Mi progreso.</div><div class="stats">
+<div class="stat"><small>Capital registrado</small><strong id="topCapital">RD$0</strong></div>
+<div class="stat"><small>Avance de la meta</small><strong id="topPercent">0%</strong></div>
+<div class="stat"><small>Ahorro previsto/mes</small><strong id="topMonthly">RD$0</strong></div>
+<div class="stat"><small>Meta financiera</small><strong id="topGoal">RD$0</strong></div>
+</div></div></header>
+<main class="wrap">
+<nav class="tabs" style="grid-template-columns:repeat(6,1fr)">
+<button class="active" data-tab="inicio">Inicio</button><button data-tab="finanzas">Finanzas</button><button data-tab="metas">Metas</button><button data-tab="ruta">Ruta 5 años</button><button data-tab="revision">Revisión</button><button data-tab="nube">Nube</button>
+</nav>
+<section id="inicio" class="page">
+<div class="card"><h2>Resumen de tu plan</h2><div class="row"><span>Capital real registrado</span><strong id="homeInitial">RD$0</strong></div><div class="row"><span>Proyección a 60 meses</span><strong id="homeFive">RD$0</strong></div><div class="row"><span>Falta para la meta</span><strong id="homeRemaining">RD$0</strong></div><div class="progress"><span id="homeBar"></span></div><p class="muted" id="homeDesc">Proyección sencilla sin HN SAM ni rendimientos.</p></div>
+<div class="card"><h2>Presupuesto base</h2><div class="row"><span>Ingreso mensual</span><strong id="sumIncome">RD$0</strong></div><div class="row"><span>Gastos confirmados</span><strong id="sumExpenses">RD$0</strong></div><div class="row"><span>Ahorro previsto</span><strong id="sumSavings">RD$0</strong></div><div class="row"><span>Saldo estimado después de lo anterior</span><strong id="sumBalance">RD$0</strong></div><p class="muted">El saldo no se considera dinero libre: registra otros gastos reales antes de decidir cuánto puedes ahorrar.</p></div>
+<div class="card"><h2>Prioridades 2026–2031</h2><div class="row"><span>1. Registrar gastos reales y organizar el presupuesto</span><span class="pill">Primero</span></div><div class="row"><span>2. Mejorar ingresos y oportunidades laborales</span><span>En marcha</span></div><div class="row"><span>3. Avanzar en Ingeniería Industrial</span><span>En marcha</span></div><div class="row"><span>4. Investigar la compra de apartamento</span><span>Pendiente</span></div><div class="row"><span>5. Validar la viabilidad del colmado</span><span>Pendiente</span></div></div>
+<div class="warning"><strong>Regla de proyección:</strong> HN SAM está excluido hasta verificar sus condiciones. No se cuentan intereses ni rendimientos. La proyección no sustituye tu capital real.</div>
+</section>
+<section id="finanzas" class="page hidden">
+<div class="card"><h2>Datos financieros</h2><div class="notice"><strong>Primer uso:</strong> por privacidad, esta versión pública empieza con cifras en cero. Introduce aquí tus datos iniciales. Se guardarán en este navegador y, si configuras la nube, podrás sincronizarlos con tu cuenta.</div><p class="muted">Edita los datos cuando cambien. Se guardan en este navegador y, si configuras la nube, podrás sincronizarlos con tu cuenta.</p>
+<div class="two">
+<div><label for="income">Ingreso mensual neto (RD$)</label><input id="income" type="number" min="0" step="500"></div>
+<div><label for="initial">Capital inicial confirmado (RD$)</label><input id="initial" type="number" min="0" step="500"></div>
+<div><label for="goal">Meta de capital (RD$)</label><input id="goal" type="number" min="1" step="10000"></div>
+<div><label for="monthly">Ahorro mensual previsto (RD$)</label><input id="monthly" type="number" min="0" step="500"></div>
+<div><label for="actual">Capital real disponible hoy (RD$)</label><input id="actual" type="number" min="0" step="500"></div>
+<div><label for="period">Periodo de proyección</label><select id="period"><option value="3">3 meses</option><option value="12">12 meses</option><option value="60" selected>60 meses (5 años)</option></select></div>
+</div>
+<h3>Gastos mensuales</h3>
+<div class="two">
+<div><label for="university">Universidad (RD$)</label><input id="university" type="number" min="0" step="100"></div>
+<div><label for="family">Ayuda familiar (RD$)</label><input id="family" type="number" min="0" step="100"></div>
+<div><label for="transport">Transporte (RD$)</label><input id="transport" type="number" min="0" step="100"></div>
+<div><label for="other">Otros gastos confirmados (RD$)</label><input id="other" type="number" min="0" step="100"></div>
+</div>
+<div class="row"><span>Saldo mensual estimado tras gastos y ahorro</span><strong id="balance">RD$0</strong></div><div class="row"><span>Capital proyectado al periodo seleccionado</span><strong id="projection">RD$0</strong></div><div class="progress"><span id="finBar"></span></div><p id="finStatus" class="muted"></p>
+<div class="warning">HN SAM no se incluye. Cuando confirmes cuánto aportas, cuándo recibes y si hay descuentos o riesgos, se podrá evaluar por separado sin alterar las cifras confirmadas.</div>
+<button class="action" id="saveMonth">Registrar ahorro real de este mes</button>
+<button class="action secondary" id="export">Exportar copia de mis datos</button>
+<label for="importFile">Restaurar una copia de seguridad</label><input id="importFile" type="file" accept=".json,application/json">
+</div>
+<div class="card"><h2>Historial de ahorro real</h2><div id="history" class="muted">Todavía no hay registros.</div></div>
+</section>
+<section id="metas" class="page hidden">
+<div class="card"><h2>Lista de logros</h2><p class="muted">Marca una tarea solo cuando la hayas completado. El porcentaje se calcula con las tareas marcadas.</p><div id="checklist"></div><div class="row"><span>Progreso de tareas</span><strong id="taskCount">0/0</strong></div><div class="progress"><span id="taskBar"></span></div></div>
+<div class="card"><h2>Objetivos principales</h2><div class="row"><span>Meta de capital configurada</span><span>Financiero</span></div><div class="row"><span>Terminar Ingeniería Industrial</span><span>Académico</span></div><div class="row"><span>Conseguir una mejor oportunidad laboral</span><span>Profesional</span></div><div class="row"><span>Preparar la compra de apartamento</span><span>Patrimonial</span></div><div class="row"><span>Evaluar el colmado en Verón/Punta Cana</span><span>Negocio</span></div></div>
+</section>
+
+<section id="ruta" class="page hidden">
+<div class="card"><h2>Tu ruta 2026–2031</h2>
+<p>Esta ruta organiza tus objetivos en pasos progresivos. Los hitos son metas de trabajo, no garantías: ajústalos según tu avance real, el calendario universitario, las oportunidades laborales y los costos que confirmes.</p>
+<div class="warning"><strong>Planificación realista:</strong> introduce tus cifras personales en la sección Finanzas después de publicar la aplicación. La proyección usará los datos que registres, sin rendimientos no confirmados ni HN SAM. Los datos de inicio están vacíos para no divulgar cifras personales en el código público.</div>
+</div>
+<div class="card"><h2>Etapa 1 · Base y control</h2><span class="pill">Oct. 2026 – 2027</span>
+<ul>
+<li>Registrar durante 3 meses todos los gastos reales, incluidos los pequeños, sin contar HN SAM.</li>
+<li>Definir un ahorro mensual sostenible después de registrar los gastos reales; construir un fondo de emergencia inicial.</li>
+<li>Actualizar el currículum y crear un perfil profesional enfocado en almacén, inventario, logística y operaciones.</li>
+<li>Practicar Excel con ejercicios de inventario, reportes, tablas dinámicas y fórmulas; guardar ejemplos como portafolio.</li>
+<li>Practicar inglés básico de forma constante y reservar 5–8 horas semanales para estudio y desarrollo profesional.</li>
+<li>Confirmar calendario, asignaturas pendientes, costos y fecha estimada de graduación con la universidad.</li>
+</ul><label class="check"><input type="checkbox" data-road="r1"> <span>Etapa 1 completada o revisada</span></label></div>
+<div class="card"><h2>Etapa 2 · Mejorar perfil e ingresos</h2><span class="pill">2027 – 2028</span>
+<ul>
+<li>Postularse regularmente a puestos de inventario, logística, compras, operaciones, calidad o mejora continua, comparando sueldo neto, horario, transporte y oportunidades de crecimiento.</li>
+<li>Buscar proyectos internos que demuestren resultados medibles: exactitud de inventario, reducción de errores, tiempos de despacho o control de materiales.</li>
+<li>Completar cursos prácticos relevantes y conservar certificados y evidencias; priorizar habilidades que aparezcan en las vacantes reales.</li>
+<li>Revisar el presupuesto trimestralmente y aumentar el ahorro solo cuando los ingresos y gastos reales lo permitan.</li>
+</ul><label class="check"><input type="checkbox" data-road="r2"> <span>Etapa 2 completada o revisada</span></label></div>
+<div class="card"><h2>Etapa 3 · Avanzar hacia la graduación</h2><span class="pill">2028 – 2029</span>
+<ul>
+<li>Priorizar aprobar las asignaturas y confirmar con UFHEC los requisitos finales, prácticas, documentos y fecha de graduación.</li>
+<li>Convertir la experiencia laboral en logros concretos para el CV y preparar entrevistas para puestos de mayor responsabilidad.</li>
+<li>Comparar ofertas de empleo por ingreso neto, estabilidad, beneficios, aprendizaje y posibilidades de ascenso; no cambiar solo por el sueldo anunciado.</li>
+<li>Separar el fondo de emergencia del dinero destinado a vivienda o negocio.</li>
+</ul><label class="check"><input type="checkbox" data-road="r3"> <span>Etapa 3 completada o revisada</span></label></div>
+<div class="card"><h2>Etapa 4 · Preparar decisiones grandes</h2><span class="pill">2029 – 2030</span>
+<ul>
+<li>Investigar apartamentos con datos verificables: precio total, inicial, cuota, tasa, seguros, mantenimiento, gastos de cierre y requisitos de financiamiento.</li>
+<li>Calcular una cuota que sea sostenible con el ingreso neto real y los gastos habituales; no comprometer el fondo de emergencia para completar una inicial.</li>
+<li>Evaluar el colmado en Verón/Punta Cana mediante visitas y datos reales: alquiler, depósito, inventario inicial, permisos, servicios, competencia, ventas probables, margen, pérdidas y capital de trabajo.</li>
+<li>Preparar un escenario conservador, uno medio y uno favorable para el negocio, usando cotizaciones y supuestos explícitos. No abrirlo solo porque parezca rentable.</li>
+</ul><label class="check"><input type="checkbox" data-road="r4"> <span>Etapa 4 completada o revisada</span></label></div>
+<div class="card"><h2>Etapa 5 · Consolidar y decidir</h2><span class="pill">2030 – oct. 2031</span>
+<ul>
+<li>Revisar el capital real, los ingresos y el avance hacia la meta financiera configurada; comparar el resultado con las metas anteriores.</li>
+<li>Elegir entre avanzar con la vivienda, emprender o seguir acumulando capital, según los números confirmados y sin asumir que es posible financiar todo al mismo tiempo.</li>
+<li>Si se compra vivienda o se inicia un negocio, elaborar un presupuesto separado y conservar liquidez para imprevistos.</li>
+<li>Definir el siguiente plan de cinco años con base en lo que realmente se haya logrado.</li>
+</ul><label class="check"><input type="checkbox" data-road="r5"> <span>Etapa 5 completada o revisada</span></label></div>
+<div class="card"><h2>Rutina semanal y mensual</h2>
+<div class="row"><span>Bloque semanal de aprendizaje</span><strong>5–8 h/semana</strong></div>
+<div class="row"><span>Revisión de gastos y ahorro</span><strong>Mensual</strong></div>
+<div class="row"><span>Revisión de metas y obstáculos</span><strong>Mensual</strong></div>
+<div class="row"><span>Revisión profunda del plan</span><strong>Trimestral</strong></div>
+<p class="muted">Una rutina posible: 2 sesiones para Excel/estudio, 2 para inglés y carrera, y 1 sesión para CV, vacantes y revisión financiera. Ajusta las horas a la universidad y el trabajo.</p>
+</div>
+<div class="card"><h2>Indicadores que debes vigilar</h2>
+<div class="row"><span>Capital real acumulado</span><strong id="roadCapital">RD$0</strong></div>
+<div class="row"><span>Ingreso mensual neto</span><strong id="roadIncome">RD$0</strong></div>
+<div class="row"><span>Ahorro mensual registrado/previsto</span><strong id="roadSaving">RD$0</strong></div>
+<div class="row"><span>Porcentaje hacia tu meta financiera</span><strong id="roadPercent">0%</strong></div>
+<p class="muted">Actualiza estos valores en Finanzas. Los resultados dependen de los datos que registres; no se incluyen rendimientos ni HN SAM.</p>
+</div>
+</section>
+
+<section id="revision" class="page hidden">
+<div class="card"><h2>Revisión mensual</h2><label for="reviewMonth">Mes revisado</label><input id="reviewMonth" type="month">
+<label for="savedReal">¿Cuánto ahorraste realmente este mes? (RD$)</label><input id="savedReal" type="number" min="0" step="100">
+<label for="reviewCapital">Capital real acumulado al cierre (RD$)</label><input id="reviewCapital" type="number" min="0" step="100">
+<label for="wins">¿Qué lograste este mes?</label><textarea id="wins" rows="3" placeholder="Ej. actualicé el currículum, estudié inglés..."></textarea>
+<label for="challenges">¿Qué debo mejorar o qué gastos inesperados hubo?</label><textarea id="challenges" rows="3" placeholder="Anota obstáculos, gastos o cambios de ingreso..."></textarea>
+<label for="nextStep">Mi siguiente paso concreto</label><textarea id="nextStep" rows="2" placeholder="Una acción pequeña que completarás el próximo mes"></textarea>
+<button class="action" id="saveReview">Guardar revisión mensual</button><div id="reviewMsg" class="status"></div></div>
+<div class="card"><h2>Historial de revisiones</h2><div id="reviews" class="muted">Todavía no hay revisiones.</div></div>
+</section>
+<section id="nube" class="page hidden">
+<div class="card"><h2>Sincronización en la nube</h2><p class="muted">Esta versión incluye el espacio de configuración para conectar una base de datos de Supabase. La sincronización no estará activa hasta que crees el proyecto, configures la tabla y pegues los datos de conexión.</p>
+<div class="notice"><strong>Privacidad:</strong> usa únicamente la clave pública/anon de Supabase en el navegador y activa las políticas RLS que aparecen en las instrucciones. Nunca pegues aquí una clave secreta de administración, contraseñas personales ni datos bancarios.</div>
+<label for="supabaseUrl">URL del proyecto Supabase</label><input id="supabaseUrl" type="url" placeholder="https://tu-proyecto.supabase.co">
+<label for="supabaseKey">Clave pública anon/publishable</label><input id="supabaseKey" type="password" autocomplete="off" placeholder="Pega la clave pública del proyecto">
+<button class="action secondary" id="connectCloud">Conectar configuración</button><div id="cloudStatus" class="status">Estado: almacenamiento local. La nube todavía no está configurada.</div>
+<div id="authArea" class="hidden">
+<h3>Cuenta para sincronizar</h3>
+<label for="cloudEmail">Correo electrónico</label><input id="cloudEmail" type="email" autocomplete="email" placeholder="tu correo">
+<label for="cloudPassword">Contraseña de la cuenta de la aplicación</label><input id="cloudPassword" type="password" autocomplete="new-password" placeholder="Crea una contraseña fuerte">
+<button class="action" id="signUp">Crear cuenta</button><button class="action secondary" id="signIn">Iniciar sesión</button><button class="action secondary" id="syncCloud">Sincronizar datos ahora</button><button class="action danger" id="signOut">Cerrar sesión</button>
+</div>
+</div>
+<div class="card"><h2>Instrucciones para activar la nube</h2>
+<ol>
+<li>Crea un proyecto en Supabase y guarda de forma segura sus datos de acceso.</li>
+<li>En la sección SQL Editor de Supabase, ejecuta el SQL que se puede copiar con el botón de abajo.</li>
+<li>Pega en esta pantalla la URL del proyecto y la clave pública (anon/publishable), y pulsa “Conectar configuración”.</li>
+<li>Crea una cuenta en la aplicación, confirma el correo si Supabase lo solicita e inicia sesión.</li>
+<li>Pulsa “Sincronizar datos ahora”. Revisa que el estado confirme la sincronización antes de borrar datos locales.</li>
+</ol>
+<button class="action secondary" id="copySql">Copiar SQL de configuración</button><div id="sqlMsg" class="status"></div>
+<p class="muted">Si no tienes todavía un proyecto Supabase, esta pantalla no puede crearlo por ti. La app puede seguir usándose en modo local mientras completas ese paso.</p>
+</div>
+</section>
+<div class="foot">Mi Plan 2031 · Versión avanzada inicial · Guarda una copia de seguridad periódica.</div>
+</main>
+<script>
+const KEY='miPlan2031_advanced_v1', CFG='miPlan2031_cloud_config_v1';
+const defaultState={income:0,initial:0,goal:0,monthly:0,actual:0,period:60,university:0,family:0,transport:0,other:0,tasks:{},history:[],reviews:[],hnSamIncluded:false};
+let state;
+try{state={...defaultState,...JSON.parse(localStorage.getItem(KEY)||'{}')};}catch(e){state={...defaultState};}
+let supabaseClient=null, currentUser=null;
+const ids=['income','initial','goal','monthly','actual','period','university','family','transport','other'];
+const money=n=>'RD$'+Math.round(Number(n)||0).toLocaleString('en-US');
+function persist(){localStorage.setItem(KEY,JSON.stringify(state));render();}
+function readInputs(){ids.forEach(id=>{const el=document.getElementById(id);state[id]=Number(el.value)||0;});}
+function calc(){const p=Number(state.actual)+Number(state.monthly)*Number(state.period);const pct=state.goal>0?Math.min(100,p/state.goal*100):0;const bal=Number(state.income)-Number(state.university)-Number(state.family)-Number(state.transport)-Number(state.other)-Number(state.monthly);return {p,pct,bal};}
+const taskItems=[
+['Registrar todos los gastos reales de un mes','Finanzas'],['Verificar condiciones de HN SAM antes de contarlo','Finanzas'],['Mantener o ajustar el ahorro según el presupuesto real','Finanzas'],['Actualizar mi currículum','Carrera'],['Buscar y solicitar mejores empleos','Carrera'],['Practicar Excel, logística o herramientas de ingeniería','Carrera'],['Practicar inglés regularmente','Carrera'],['Investigar requisitos y costos de compra de apartamento','Vivienda'],['Investigar costos, demanda y riesgos del colmado','Negocio'],['Revisar el plan al final de cada trimestre','Planificación']];
+function render(){
+ ids.forEach(id=>{let el=document.getElementById(id);if(el&&document.activeElement!==el)el.value=state[id];});
+ const c=calc(),pctActual=state.goal?Math.min(100,Number(state.actual)/Number(state.goal)*100):0;
+ document.getElementById('topCapital').textContent=money(state.actual);document.getElementById('topPercent').textContent=pctActual.toFixed(1)+'%';document.getElementById('topMonthly').textContent=money(state.monthly);document.getElementById('topGoal').textContent=money(state.goal);
+ document.getElementById('homeInitial').textContent=money(state.actual);document.getElementById('homeFive').textContent=money(Number(state.actual)+Number(state.monthly)*60);document.getElementById('homeRemaining').textContent=money(Math.max(0,state.goal-state.actual));document.getElementById('homeBar').style.width=pctActual+'%';document.getElementById('homeDesc').textContent='Proyección a '+state.period+' meses: '+money(c.p)+'. Sin HN SAM ni rendimientos.';
+ document.getElementById('sumIncome').textContent=money(state.income);document.getElementById('sumExpenses').textContent=money(Number(state.university)+Number(state.family)+Number(state.transport)+Number(state.other));document.getElementById('sumSavings').textContent=money(state.monthly);document.getElementById('sumBalance').textContent=money(c.bal);
+ document.getElementById('balance').textContent=money(c.bal);document.getElementById('projection').textContent=money(c.p);document.getElementById('finBar').style.width=c.pct+'%';document.getElementById('finStatus').textContent=c.pct.toFixed(2)+'% de la meta en el periodo seleccionado. '+(c.bal<0?'El presupuesto proyecta un déficit; revisa los valores.':'Registra todos los gastos reales antes de considerar el saldo como disponible.');
+ document.getElementById('roadCapital').textContent=money(state.actual);document.getElementById('roadIncome').textContent=money(state.income);document.getElementById('roadSaving').textContent=money(state.monthly);document.getElementById('roadPercent').textContent=(state.goal?Math.min(100,state.actual/state.goal*100):0).toFixed(2)+'%';
+ document.getElementById('checklist').innerHTML=taskItems.map(([t,cat])=>`<label class="check"><input type="checkbox" data-task="${escapeHtml(t)}" ${state.tasks[t]?'checked':''}><span><strong>${escapeHtml(t)}</strong><br><small class="taskcat">${cat}</small></span></label>`).join('');
+ const done=taskItems.filter(([t])=>state.tasks[t]).length;document.getElementById('taskCount').textContent=done+'/'+taskItems.length;document.getElementById('taskBar').style.width=(done/taskItems.length*100)+'%';
+document.querySelectorAll('[data-road]').forEach(el=>{el.checked=!!state.tasks['__road_'+el.dataset.road];});
+ document.getElementById('history').innerHTML=state.history.length?state.history.slice().sort((a,b)=>b.date.localeCompare(a.date)).map(x=>`<div class="row"><span>${escapeHtml(x.date)}</span><strong>${money(x.amount)}</strong></div>`).join(''):'Todavía no hay registros.';
+ document.getElementById('reviews').innerHTML=state.reviews.length?state.reviews.slice().sort((a,b)=>(b.month||'').localeCompare(a.month||'')).map(x=>`<div class="card"><strong>${escapeHtml(x.month||'Sin fecha')} · Ahorro ${money(x.saved)} · Capital ${money(x.capital)}</strong><p>${escapeHtml(x.wins)}</p><p class="muted">${escapeHtml(x.challenges)}</p><p><strong>Siguiente paso:</strong> ${escapeHtml(x.nextStep)}</p></div>`).join(''):'Todavía no hay revisiones.';
+}
+function escapeHtml(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+ids.forEach(id=>document.getElementById(id).addEventListener('change',()=>{readInputs();persist();}));
+document.querySelectorAll('[data-tab]').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('[data-tab]').forEach(x=>x.classList.toggle('active',x===b));document.querySelectorAll('.page').forEach(x=>x.classList.toggle('hidden',x.id!==b.dataset.tab));}));
+document.getElementById('checklist').addEventListener('change',e=>{if(e.target.matches('[data-task]')){state.tasks[e.target.dataset.task]=e.target.checked;persist();}});
+document.getElementById('ruta').addEventListener('change',e=>{if(e.target.matches('[data-road]')){state.tasks['__road_'+e.target.dataset.road]=e.target.checked;persist();}});
+document.getElementById('saveMonth').addEventListener('click',()=>{
+ const d=new Date(),date=d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0');
+ const amount=Number(prompt('¿Cuánto ahorraste realmente este mes? (RD$)',String(state.monthly)));
+ if(!Number.isFinite(amount)||amount<0){alert('No se registró: introduce una cantidad válida.');return;}
+ const idx=state.history.findIndex(x=>x.date===date);const entry={date,amount};
+ if(idx>=0)state.history[idx]=entry;else state.history.push(entry);
+ state.actual=Number(state.initial)+state.history.reduce((a,x)=>a+Number(x.amount||0),0);
+ persist();alert('Ahorro real registrado. El capital se calcula con el capital inicial y los registros mensuales.');
+});
+document.getElementById('saveReview').addEventListener('click',()=>{
+ const month=document.getElementById('reviewMonth').value;
+ if(!month){document.getElementById('reviewMsg').textContent='Selecciona el mes que estás revisando.';return;}
+ const item={month,saved:Number(document.getElementById('savedReal').value)||0,capital:Number(document.getElementById('reviewCapital').value)||Number(state.actual)||0,wins:document.getElementById('wins').value,challenges:document.getElementById('challenges').value,nextStep:document.getElementById('nextStep').value};
+ const i=state.reviews.findIndex(x=>x.month===month);if(i>=0)state.reviews[i]=item;else state.reviews.push(item);
+ state.actual=item.capital;document.getElementById('reviewMsg').textContent='Revisión guardada en este dispositivo. Si activas la nube, sincroniza después.';persist();
+});
+document.getElementById('export').addEventListener('click',()=>{const blob=new Blob([JSON.stringify({version:2,exportedAt:new Date().toISOString(),state},null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='mi-plan-2031-respaldo.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);});
+document.getElementById('importFile').addEventListener('change',async e=>{const f=e.target.files[0];if(!f)return;try{const data=JSON.parse(await f.text());const incoming=data.state||data;state={...defaultState,...incoming};persist();alert('Copia restaurada. Verifica tus cifras y exporta un nuevo respaldo.');}catch(err){alert('No se pudo leer la copia.');}});
+document.getElementById('reviewMonth').value=new Date().toISOString().slice(0,7);
+render();
+
+const SQL=`create table if not exists public.user_plans (
+  user_id uuid primary key references auth.users(id) on delete cascade,
+  data jsonb not null default '{}'::jsonb,
+  updated_at timestamptz not null default now()
+);
+alter table public.user_plans enable row level security;
+drop policy if exists "Users can read their own plan" on public.user_plans;
+create policy "Users can read their own plan" on public.user_plans for select using (auth.uid() = user_id);
+drop policy if exists "Users can insert their own plan" on public.user_plans;
+create policy "Users can insert their own plan" on public.user_plans for insert with check (auth.uid() = user_id);
+drop policy if exists "Users can update their own plan" on public.user_plans;
+create policy "Users can update their own plan" on public.user_plans for update using (auth.uid() = user_id) with check (auth.uid() = user_id);
+`;
+function cloudMsg(msg){document.getElementById('cloudStatus').textContent=msg;}
+function loadConfig(){try{return JSON.parse(localStorage.getItem(CFG)||'{}')}catch(e){return {}}}
+function saveConfig(){const c={url:document.getElementById('supabaseUrl').value.trim(),key:document.getElementById('supabaseKey').value.trim()};localStorage.setItem(CFG,JSON.stringify(c));return c;}
+async function ensureLibrary(){
+ if(!window.supabase){await new Promise((resolve,reject)=>{const s=document.createElement('script');s.src='https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2';s.onload=resolve;s.onerror=()=>reject(new Error('No se pudo cargar la biblioteca de conexión. Revisa tu internet.'));document.head.appendChild(s);});}
+}
+document.getElementById('connectCloud').addEventListener('click',async()=>{
+ const c=saveConfig();if(!c.url||!c.key){cloudMsg('Escribe la URL y la clave pública de tu proyecto Supabase.');return;}
+ try{await ensureLibrary();supabaseClient=window.supabase.createClient(c.url,c.key);const {data:{session},error}=await supabaseClient.auth.getSession();if(error)throw error;
+ document.getElementById('authArea').classList.remove('hidden');
+ if(session){currentUser=session.user;cloudMsg('Conexión configurada. Sesión iniciada como '+session.user.email+'. Pulsa sincronizar para guardar o recuperar datos.');}
+ else cloudMsg('Configuración cargada. Crea una cuenta o inicia sesión para sincronizar.');
+ }catch(e){cloudMsg('No se pudo conectar: '+(e.message||'revisa URL, clave e internet')+'. Los datos locales siguen disponibles.');}
+});
+document.getElementById('signUp').addEventListener('click',async()=>{
+ if(!supabaseClient){cloudMsg('Primero pulsa Conectar configuración.');return;}
+ const email=document.getElementById('cloudEmail').value.trim(),password=document.getElementById('cloudPassword').value;
+ if(!email||password.length<8){cloudMsg('Escribe un correo y una contraseña de al menos 8 caracteres.');return;}
+ const {data,error}=await supabaseClient.auth.signUp({email,password});
+ if(error){cloudMsg('No se pudo crear la cuenta: '+error.message);return;}
+ currentUser=data.user||null;cloudMsg(data.session?'Cuenta creada. Ahora sincroniza tus datos.':'Solicitud de cuenta enviada. Si se solicita confirmación por correo, confírmala y luego inicia sesión.');
+});
+document.getElementById('signIn').addEventListener('click',async()=>{
+ if(!supabaseClient){cloudMsg('Primero pulsa Conectar configuración.');return;}
+ const email=document.getElementById('cloudEmail').value.trim(),password=document.getElementById('cloudPassword').value;
+ const {data,error}=await supabaseClient.auth.signInWithPassword({email,password});
+ if(error){cloudMsg('No se pudo iniciar sesión: '+error.message);return;}
+ currentUser=data.user;cloudMsg('Sesión iniciada. Pulsa sincronizar para guardar o recuperar tus datos.');
+});
+document.getElementById('syncCloud').addEventListener('click',async()=>{
+ if(!supabaseClient){cloudMsg('Primero configura la conexión.');return;}
+ const {data:{user},error:authError}=await supabaseClient.auth.getUser();
+ if(authError||!user){cloudMsg('Inicia sesión antes de sincronizar.');return;}
+ currentUser=user;
+ const {data:remote,error:readError}=await supabaseClient.from('user_plans').select('data,updated_at').eq('user_id',user.id).maybeSingle();
+ if(readError){cloudMsg('No se pudo leer la nube. Verifica que ejecutaste el SQL y las políticas de seguridad: '+readError.message);return;}
+ if(remote&&remote.data){
+   const choice=confirm('Ya existe un plan en la nube. Aceptar = cargar el plan de la nube y reemplazar los datos locales. Cancelar = subir los datos locales y reemplazar el plan de la nube.');
+   if(choice){state={...defaultState,...remote.data};persist();cloudMsg('Datos cargados desde la nube. Revisa los importes y vuelve a sincronizar si haces cambios.');return;}
+ }
+ const {error:writeError}=await supabaseClient.from('user_plans').upsert({user_id:user.id,data:state,updated_at:new Date().toISOString()},{onConflict:'user_id'});
+ if(writeError){cloudMsg('No se pudieron guardar los datos en la nube: '+writeError.message);return;}
+ cloudMsg('Sincronización completada: se guardaron los datos locales en tu cuenta de nube. Exporta también una copia de seguridad.');
+});
+document.getElementById('signOut').addEventListener('click',async()=>{
+ if(supabaseClient){const {error}=await supabaseClient.auth.signOut();if(error){cloudMsg('Error al cerrar sesión: '+error.message);return;}}
+ currentUser=null;cloudMsg('Sesión cerrada. Los datos locales permanecen en este navegador.');
+});
+document.getElementById('copySql').addEventListener('click',async()=>{
+ try{await navigator.clipboard.writeText(SQL);document.getElementById('sqlMsg').textContent='SQL copiado. Pégalo en el SQL Editor de tu proyecto Supabase y ejecútalo.';}
+ catch(e){const w=window.open('','_blank');if(w){w.document.write('<pre>'+escapeHtml(SQL)+'</pre>');document.getElementById('sqlMsg').textContent='Se abrió una pestaña con el SQL para copiarlo manualmente.';}else document.getElementById('sqlMsg').textContent='No se pudo copiar automáticamente. Puedes copiar el SQL desde el archivo fuente o abrirlo en un navegador que permita el portapapeles.';}
+});
+const cfg=loadConfig();if(cfg.url)document.getElementById('supabaseUrl').value=cfg.url;if(cfg.key)document.getElementById('supabaseKey').value=cfg.key;
+</script>
+</body></html>
