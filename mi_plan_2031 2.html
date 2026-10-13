@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#173b32">
+<title>Mi Plan 2031 · Avanzado</title>
+<style>
+:root{--green:#173b32;--green2:#285044;--bg:#f3f6f4;--card:#fff;--ink:#172522;--muted:#65736e;--line:#dce5df;--gold:#c18b35}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.45}
+header{background:linear-gradient(135deg,var(--green),var(--green2));color:white;padding:22px 16px;border-radius:0 0 22px 22px}.wrap{max-width:850px;margin:auto;padding:0 13px}h1{font-size:27px;margin:0 0 4px}header p{margin:0;color:#dce9e2}.stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin-top:17px}.stat{background:#ffffff18;border:1px solid #ffffff25;border-radius:12px;padding:11px}.stat small{display:block;color:#dce9e2;font-size:12px}.stat strong{display:block;font-size:19px;margin-top:4px}
+main{padding:15px 0 30px}.card{background:var(--card);border:1px solid var(--line);border-radius:15px;padding:16px;margin-bottom:13px;box-shadow:0 2px 7px #1c302508}h2{font-size:19px;margin:0 0 11px}h3{font-size:15px;margin:14px 0 7px}.muted{color:var(--muted);font-size:13px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.field label{display:block;font-size:13px;color:var(--muted);margin-bottom:5px}.field input,.field select,.field textarea{width:100%;border:1px solid #cbd8d0;border-radius:9px;padding:10px;font:inherit;background:#fff;color:var(--ink)}.field textarea{min-height:65px}button{border:0;border-radius:10px;background:var(--green);color:white;padding:11px 13px;font:inherit;font-weight:650;cursor:pointer}.secondary{background:#e7eee9;color:var(--green)}.danger{background:#f7e8e8;color:#a13e3e}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.progress{height:10px;background:#e5ece7;border-radius:99px;overflow:hidden;margin:9px 0}.progress span{display:block;height:100%;background:#27845d}.goal{border-left:4px solid var(--gold);padding:10px 12px;background:#fbf7ef;border-radius:0 10px 10px 0;margin:9px 0}.notice{background:#fff7e8;border:1px solid #efdfbb;border-radius:10px;padding:11px;font-size:13px}ul{list-style:none;padding:0;margin:0}li{display:flex;gap:9px;padding:10px 0;border-bottom:1px solid var(--line)}li:last-child{border-bottom:0}input[type=checkbox]{width:19px;height:19px;accent-color:var(--green);margin-top:3px}table{width:100%;border-collapse:collapse;font-size:14px}td,th{text-align:left;padding:8px 4px;border-bottom:1px solid var(--line)}td:last-child,th:last-child{text-align:right}.history{border-top:1px solid var(--line);padding:10px 0}.pill{background:#e7f1eb;color:var(--green);border-radius:999px;padding:3px 8px;font-size:12px}
+@media(min-width:650px){.stats{grid-template-columns:repeat(4,minmax(0,1fr))}.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+</style></head>
+<body>
+<header><div class="wrap"><h1>Mi Plan 2031</h1><p>Tu guía personal, financiera y profesional · 2026–2031</p>
+<div class="stats"><div class="stat"><small>Capital registrado</small><strong id="capitalTop">RD$0</strong></div><div class="stat"><small>Meta alcanzada</small><strong id="percentTop">0%</strong></div><div class="stat"><small>Ahorro mensual previsto</small><strong id="plannedTop">RD$4,000</strong></div><div class="stat"><small>Meta financiera</small><strong>RD$2,000,000</strong></div></div></div></header>
+<main class="wrap">
+<section class="card"><h2>Tu estrategia</h2><p>La aplicación calcula automáticamente tus resultados a partir de los datos que registres. Tu enfoque: terminar Ingeniería Industrial, mejorar tu inglés y Excel, aumentar tus oportunidades laborales, preparar la compra de un apartamento y evaluar con cuidado un negocio en Verón/Punta Cana.</p><div class="goal"><b>Cómo usarla:</b> introduce tus cifras reales; la aplicación calculará saldos, porcentajes, diferencias y próximos pasos. No inventa rendimientos ni cuenta dinero que todavía no recibiste.</div></section>
+<section class="card"><h2>1. Presupuesto mensual</h2><p class="muted">Cifras de partida editables. Añade los gastos que falten para que el cálculo sea útil.</p>
+<div class="grid">
+<div class="field"><label>Ingreso mensual (RD$)</label><input id="income" type="number" min="0" value="33000"></div>
+<div class="field"><label>Ahorro previsto (RD$)</label><input id="planned" type="number" min="0" value="4000"></div>
+<div class="field"><label>Capital inicial (RD$)</label><input id="initial" type="number" min="0" value="0"></div>
+<div class="field"><label>Universidad (RD$)</label><input id="university" type="number" min="0" value="5500"></div>
+<div class="field"><label>Ayuda familiar (RD$)</label><input id="family" type="number" min="0" value="5000"></div>
+<div class="field"><label>Transporte (RD$)</label><input id="transport" type="number" min="0" value="5000"></div>
+<div class="field"><label>Otros gastos mensuales (RD$)</label><input id="other" type="number" min="0" value="0"></div>
+<div class="field"><label>Meta financiera (RD$)</label><input id="goal" type="number" min="1" value="2000000"></div>
+<div class="field"><label>Fecha objetivo</label><input id="goalDate" type="date" value="2031-12-31"></div></div>
+<div class="actions"><button id="saveBudget">Guardar presupuesto</button><button class="secondary" id="restore">Restaurar datos iniciales</button></div><div id="budgetOutput"></div></section>
+<section class="card"><h2>2. Registrar movimiento del mes</h2><p class="muted">Registra cada mes el ahorro real y el total de gastos adicionales que quieras contabilizar. Si hay retiros de tus ahorros, inclúyelos como ajuste negativo.</p>
+<div class="grid"><div class="field"><label>Mes</label><input id="month" type="month"></div><div class="field"><label>Ahorro real del mes (RD$)</label><input id="saved" type="number" min="0" value="0"></div><div class="field"><label>Ajuste neto: retiro o ingreso extra (RD$)</label><input id="adjust" type="number" value="0"></div><div class="field"><label>Gastos reales del mes (RD$)</label><input id="spent" type="number" min="0" value="0"></div><div class="field"><label>Meta/paso que cumpliste</label><input id="achievement" placeholder="Ej. practiqué inglés 4 veces"></div><div class="field"><label>Notas</label><textarea id="notes" placeholder="Qué aprendiste o qué debes ajustar"></textarea></div></div>
+<div class="actions"><button id="saveMonth">Guardar avance mensual</button><button class="secondary" id="export">Exportar copia de seguridad</button><button class="secondary" id="importBtn">Importar copia</button><input id="file" type="file" accept="application/json" hidden></div><p id="feedback" class="muted"></p></section>
+<section class="card"><h2>3. Tu progreso y recomendaciones</h2><div id="progressOutput"></div><div id="advice"></div></section>
+<section class="card"><h2>4. Metas personales y profesionales</h2><ul id="goalsList">
+<li><input type="checkbox" data-g="degree"><div><b>Terminar Ingeniería Industrial</b><div class="muted">Graduación estimada: 2029; confirma la fecha con la universidad.</div></div></li>
+<li><input type="checkbox" data-g="english"><div><b>Mejorar el inglés</b><div class="muted">Practicar cada semana y revisar el progreso.</div></div></li>
+<li><input type="checkbox" data-g="excel"><div><b>Aprender Excel y herramientas profesionales</b><div class="muted">Desarrollar habilidades aplicables al trabajo.</div></div></li>
+<li><input type="checkbox" data-g="career"><div><b>Conseguir mejores oportunidades laborales</b><div class="muted">Actualizar CV y experiencia.</div></div></li>
+<li><input type="checkbox" data-g="home"><div><b>Preparar la compra de un apartamento</b><div class="muted">Investigar precios y capacidad de pago antes de comprometerse.</div></div></li>
+<li><input type="checkbox" data-g="business"><div><b>Evaluar un negocio en Verón/Punta Cana</b><div class="muted">Estudiar costos y demanda antes de invertir.</div></div></li></ul><div class="actions"><button id="saveGoals">Guardar metas</button></div></section>
+<section class="card"><h2>5. Historial mensual</h2><div id="history" class="muted">Todavía no hay registros.</div></section>
+<section class="card"><h2>Importante sobre tus datos</h2><p class="muted">Esta versión guarda la información en el navegador de este dispositivo. Usa “Exportar copia de seguridad” periódicamente. El guardado en la nube entre dispositivos y los recordatorios automáticos requieren una configuración adicional; esta página no puede enviar avisos por sí sola si no se integra con un servicio externo.</p></section>
+</main>
+<script>
+const $=id=>document.getElementById(id),KEY='miPlan2031.v2';
+const fmt=n=>new Intl.NumberFormat('es-DO',{style:'currency',currency:'DOP',maximumFractionDigits:0}).format(Number(n)||0);
+const defaults={income:33000,planned:4000,initial:0,university:5500,family:5000,transport:5000,other:0,goal:2000000,goalDate:'2031-12-31'};
+let state={budget:{...defaults},months:{},goals:{}};
+function load(){try{let x=JSON.parse(localStorage.getItem(KEY)||'null');if(x)state={...state,...x,budget:{...defaults,...x.budget},months:x.months||{},goals:x.goals||{}}}catch(e){}}
+function persist(){localStorage.setItem(KEY,JSON.stringify(state));render()}
+function readBudget(){Object.keys(defaults).forEach(k=>state.budget[k]=$(k).type==='date'?$(k).value:(Number($(k).value)||0))}
+function fill(){Object.keys(defaults).forEach(k=>$(k).value=state.budget[k])}
+function total(){return Number(state.budget.initial||0)+Object.values(state.months).reduce((s,m)=>s+(Number(m.saved)||0)+(Number(m.adjust)||0),0)}
+function esc(s){return String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function render(){let b=state.budget,capital=total(),goal=Math.max(1,Number(b.goal)||2000000),pct=Math.min(100,Math.max(0,capital/goal*100));$('capitalTop').textContent=fmt(capital);$('percentTop').textContent=pct.toFixed(1)+'%';$('plannedTop').textContent=fmt(b.planned);
+let expenses=Number(b.university)+Number(b.family)+Number(b.transport)+Number(b.other),left=Number(b.income)-expenses-Number(b.planned);
+$('budgetOutput').innerHTML=`<table><tr><td>Ingreso mensual</td><td>${fmt(b.income)}</td></tr><tr><td>Gastos mensuales registrados en presupuesto</td><td>${fmt(expenses)}</td></tr><tr><td>Ahorro previsto</td><td>${fmt(b.planned)}</td></tr><tr><th>Resto estimado para otros gastos no detallados</th><th>${fmt(left)}</th></tr></table><p class="muted">Ese resto no es ahorro confirmado: debe cubrir cualquier gasto que todavía no esté registrado.</p>`;
+let remain=Math.max(0,goal-capital),months=Math.max(1,Math.ceil((new Date(b.goalDate||'2031-12-31')-new Date())/2629800000)),need=remain/months;
+$('progressOutput').innerHTML=`<p><b>Capital registrado:</b> ${fmt(capital)} · <b>Falta para la meta:</b> ${fmt(remain)}</p><div class="progress"><span style="width:${pct}%"></span></div><p>${pct.toFixed(1)}% de la meta financiera alcanzada.</p><p>Para alcanzar la meta en la fecha elegida, el promedio requerido sería ${fmt(need)} al mes desde ahora, sin contar rendimientos.</p>`;
+let advice=[];if(left<0)advice.push('Tu presupuesto base supera el ingreso cuando incluyes el ahorro previsto. Revisa los gastos y ajusta el ahorro a una cifra sostenible.');else advice.push('Protege primero los gastos esenciales y las obligaciones; confirma que los gastos no detallados caben en el resto del presupuesto.');if(need>Number(b.planned))advice.push('El ahorro previsto actual está por debajo del promedio necesario para la meta. Trabaja en aumentar ingresos y revisa la fecha o el objetivo con realismo.');if(capital<0)advice.push('El capital calculado está por debajo de cero: revisa los retiros y los registros.');advice.push('Evita contar ingresos que aún no recibiste o invertir dinero necesario para obligaciones próximas.');$('advice').innerHTML='<h3>Qué hacer ahora</h3><ul>'+advice.map(a=>'<li>'+esc(a)+'</li>').join('')+'</ul>';
+document.querySelectorAll('[data-g]').forEach(e=>e.checked=!!state.goals[e.dataset.g]);
+let entries=Object.entries(state.months).sort((a,b)=>b[0].localeCompare(a[0]));$('history').innerHTML=entries.length?entries.map(([m,v])=>`<div class="history"><b>${esc(m)}</b><br>Ahorro ${fmt(v.saved)} · Ajuste neto ${fmt(v.adjust)} · Gastos ${fmt(v.spent)}${v.achievement?'<p>'+esc(v.achievement)+'</p>':''}${v.notes?'<p class="muted">'+esc(v.notes)+'</p>':''}<button class="danger" data-del="${esc(m)}">Eliminar registro</button></div>`).join(''):'Todavía no hay registros. Guarda tu primer avance mensual.';document.querySelectorAll('[data-del]').forEach(btn=>btn.onclick=()=>{if(confirm('¿Eliminar este registro?')){delete state.months[btn.dataset.del];persist()}})}
+$('saveBudget').onclick=()=>{readBudget();persist();alert('Presupuesto guardado.')};$('restore').onclick=()=>{if(confirm('¿Restaurar las cifras iniciales del presupuesto? Se conservarán tus registros mensuales.')){state.budget={...defaults};fill();persist()}};
+$('saveMonth').onclick=()=>{let m=$('month').value;if(!m){alert('Selecciona el mes.');return}state.months[m]={saved:Number($('saved').value)||0,adjust:Number($('adjust').value)||0,spent:Number($('spent').value)||0,achievement:$('achievement').value.trim(),notes:$('notes').value.trim()};persist();$('feedback').textContent='Registro de '+m+' guardado correctamente.'};
+$('saveGoals').onclick=()=>{document.querySelectorAll('[data-g]').forEach(e=>state.goals[e.dataset.g]=e.checked);persist();alert('Metas guardadas.')};
+$('export').onclick=()=>{let a=document.createElement('a'),u=URL.createObjectURL(new Blob([JSON.stringify(state,null,2)],{type:'application/json'}));a.href=u;a.download='mi-plan-2031-respaldo.json';a.click();URL.revokeObjectURL(u)};
+$('importBtn').onclick=()=>$('file').click();$('file').onchange=async e=>{try{let x=JSON.parse(await e.target.files[0].text());if(!x.budget||!x.months)throw Error();state=x;persist();fill();alert('Copia importada.')}catch(err){alert('No se pudo importar ese archivo. Usa una copia de Mi Plan 2031.')}};
+load();fill();$('month').value=new Date().toISOString().slice(0,7);render();
+</script></body></html>
